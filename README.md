@@ -1,11 +1,11 @@
 # platform-assets-proxy
 
-## Usage
-Replace PLATFORM_PROJECT_DIR in lib/platform-assets-proxy-old.js with your project location.
+## Without global install
+Replace config dir in lib/run.js with your project location.
 then do:
 ```
 $ npm install
-$ npm run proxy
+$ npm start
 ```
 
 ## Not supported (for now)
@@ -15,9 +15,9 @@ $ npm run proxy
 - Changing translations on the fly.
     workaround: refresh bundle
     
-## Posible improvments
+## Posible improvements
 
 - Watching files for changes
 - Adding extra js files/ ui modules to the returned '/uimanager' calls
-- Injecting liverreload in the index.html file
+- Injecting liverreload in the index.html file.
 

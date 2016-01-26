@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "user/repo"
+    "url": "https://github.com/Vrolijkx/platform-proxy.git"
   },
   "keywords": [],
   "dependencies": {
@@ -22,7 +22,7 @@
     "lodash": "3.10.1"
   },
   "scripts": {
-    "proxy": "node lib/run.js"
+    "start": "node lib/run.js"
   },
   "bin": "bin.js"
 }

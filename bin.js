@@ -12,7 +12,7 @@ program
 	.parse(process.argv);
 
 var config;
-if(program.arg.length) {
+if(program.args.length) {
 	config = new Config(program.arg[0]);
 } else {
 	config = new Config(path.resolve("./"));
