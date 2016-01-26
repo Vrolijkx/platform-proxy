@@ -1,0 +1,28 @@
+{
+  "name": "platform-proxy",
+  "description": "See changes in html, js and css files in platform projects without reloading the module.",
+  "version": "0.0.0",
+  "homepage": "user/repo",
+  "bugs": "user/repo/issues",
+  "license": "MIT",
+  "main": "lib/live-js-replacement.js",
+  "author": {
+    "name": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "user/repo"
+  },
+  "keywords": [],
+  "dependencies": {
+    "commander": "^2.9.0",
+    "express": "^4.13.3",
+    "glob-all": "^3.0.1",
+    "http-proxy": "^1.12.0",
+    "lodash": "3.10.1"
+  },
+  "scripts": {
+    "proxy": "node lib/run.js"
+  },
+  "bin": "bin.js"
+}
