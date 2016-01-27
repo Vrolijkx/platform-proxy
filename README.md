@@ -1,4 +1,11 @@
-# platform-assets-proxy
+# platform-proxy
+
+## With global install
+```
+npm install -g
+cd your/project/dir
+platform-proxy
+```
 
 ## Without global install
 Replace config dir in lib/run.js with your project location.
