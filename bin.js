@@ -3,7 +3,7 @@
 
 var path = require('path');
 var cli = require('cli');
-var runner = require('./lib/run');
+var runner = require('./lib/runner');
 var Config = require('./lib/config');
 
 
