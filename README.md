@@ -26,5 +26,6 @@ $ npm start
 
 - Watching files for changes
 - Adding extra js files/ ui modules to the returned '/uimanager' calls
+- Move from express to connect
 - Injecting liverreload in the index.html file.
 
