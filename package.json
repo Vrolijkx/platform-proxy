@@ -16,8 +16,6 @@
   "keywords": [],
   "dependencies": {
     "cli": "^0.11.1",
-    "connect-restreamer": "^1.0.3",
-    "express": "^4.13.3",
     "glob-all": "^3.0.1",
     "http-proxy": "^1.12.0",
     "lodash": "3.10.1"
