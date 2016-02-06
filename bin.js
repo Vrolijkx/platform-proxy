@@ -1,24 +1,33 @@
 #!/usr/bin/env node
+'use strict';
 
 var path = require('path');
-var program = require('commander');
-var runner = require('./lib/run');
+var cli = require('cli');
+var runner = require('./lib/runner');
 var Config = require('./lib/config');
 
 
-program
-	.version('0.0.1')
-	.usage('[file...]')
-	.parse(process.argv);
+cli.parse({
+	port:   ['p', 'port to start proxy on', 'number', 5050]
+});
 
-var config;
-if(program.arg.length) {
-	config = new Config(program.arg[0]);
-} else {
-	config = new Config(path.resolve("./"));
+
+cli.main(exec);
+
+function exec(args, options) {
+	var servingDir;
+	if(args.length) {
+		servingDir = path.resolve(args[0]);
+	} else {
+		servingDir = path.resolve('./');
+	}
+
+	this.debug('Serving files under ' + servingDir);
+	var config = new Config(servingDir, undefined, undefined, options.port);
+
+	runner.start(config);
+	this.ok("Listening on port: " + config.poxyPort);
 }
 
-console.log("start serving assets under: " + config.platformProjectDir);
-runner.start(config);
 
 
