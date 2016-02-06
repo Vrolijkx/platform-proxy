@@ -17,8 +17,8 @@
   "dependencies": {
     "cli": "^0.11.1",
     "glob-all": "^3.0.1",
-    "http-proxy": "^1.12.0",
-    "lodash": "3.10.1"
+    "http-proxy": "^1.13.1",
+    "lodash": "^4.2.1"
   },
   "scripts": {
     "start": "node lib/run.js"
