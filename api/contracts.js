@@ -92,6 +92,9 @@ var project = {
 	updateTranslations: function (translations) {
 	},
 
+	updateJsfiles: function(category, jsfiles) {
+	},
+
 	/**
 	 * @return the working directory of this project
 	 */
