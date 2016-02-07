@@ -1,6 +1,7 @@
 # platform-proxy
 
 master: [![Build Status](https://travis-ci.org/Vrolijkx/platform-proxy.svg?branch=master)](https://travis-ci.org/Vrolijkx/platform-proxy)
+
 develop: [![Build Status](https://travis-ci.org/Vrolijkx/platform-proxy.svg?branch=develop)](https://travis-ci.org/Vrolijkx/platform-proxy)
 
 ## With global install
