@@ -17,15 +17,13 @@ $ npm start
 
 ## Not supported (for now)
 
-- Adding new files/modules on the fly. 
+- Adding new files/modules on the fly.
     workaround: refresh bundle + restart proxy
 - Changing translations on the fly.
     workaround: refresh bundle
-    
+
 ## Posible improvements
 
 - Watching files for changes
 - Adding extra js files/ ui modules to the returned '/uimanager' calls
-- Move from express to connect
 - Injecting liverreload in the index.html file.
-

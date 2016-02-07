@@ -6,11 +6,9 @@ var cli = require('cli');
 var runner = require('./lib/runner');
 var Config = require('./lib/config');
 
-
 cli.parse({
 	port:   ['p', 'port to start proxy on', 'number', 5050]
 });
-
 
 cli.main(exec);
 
@@ -28,6 +26,3 @@ function exec(args, options) {
 	runner.start(config);
 	this.ok("Listening on port: " + config.poxyPort);
 }
-
-
-
