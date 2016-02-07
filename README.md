@@ -1,5 +1,9 @@
 # platform-proxy
 
+master: [![Build Status](https://travis-ci.org/Vrolijkx/platform-proxy.svg?branch=master)](https://travis-ci.org/Vrolijkx/platform-proxy)
+
+develop: [![Build Status](https://travis-ci.org/Vrolijkx/platform-proxy.svg?branch=develop)](https://travis-ci.org/Vrolijkx/platform-proxy)
+
 ## With global install
 ```
 npm install -g
@@ -7,12 +11,9 @@ cd your/project/dir
 platform-proxy
 ```
 
-## Without global install
-Replace config dir in lib/run.js with your project location.
-then do:
+#### To see the possible options:
 ```
-$ npm install
-$ npm start
+platform-proxy -h
 ```
 
 ## Not supported (for now)
