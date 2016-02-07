@@ -1,33 +1,73 @@
 #!/usr/bin/env node
 'use strict';
 
+require('./external/hubu');
+
+var _ = require('lodash');
 var path = require('path');
+var contracts = require('./api/contracts');
+var httpServer = require('./lib/components/http-server');
+var router = require('./lib/components/router');
+var proxyRequestHandler = require('./lib/components/proxy-request-handler');
+var assetRequestHandler = require('./lib/components/asset-request-handler');
+var translationsRequestHandler = require('./lib/components/translations-request-handler');
+var Project = require('./lib/components/Project');
+
 var cli = require('cli');
-var runner = require('./lib/runner');
-var Config = require('./lib/config');
 
+var parseOptions = {};
 
-cli.parse({
-	port:   ['p', 'port to start proxy on', 'number', 5050]
-});
+var configurableServiceListener = {
+	contract: contracts.configurable,
+	listener: function (event) {
+		if (event.getType() === SOC.ServiceEvent.REGISTERED) {
+			getService(event.getReference(), addParseOptions);
+		}
+	}
+};
 
+function getService(serviceReference, fn) {
+	var service = hub.getService(this, serviceReference);
+	fn.call(null, service);
+	hub.ungetService(serviceReference);
+}
+
+function addParseOptions(configurable) {
+	return _.assign(parseOptions, configurable.getConfigurationOptions());
+}
+
+hub.registerServiceListener(configurableServiceListener);
+
+hub
+	.registerComponent(httpServer.component)
+	.registerComponent(router.component)
+	.registerComponent(proxyRequestHandler.component)
+	.registerComponent(assetRequestHandler.component)
+	.registerComponent(translationsRequestHandler.component)
+	.start();
+
+cli.parse(parseOptions);
 
 cli.main(exec);
 
 function exec(args, options) {
-	var servingDir;
-	if(args.length) {
-		servingDir = path.resolve(args[0]);
-	} else {
-		servingDir = path.resolve('./');
+	this.debug('args ' + JSON.stringify(args));
+	this.debug('options ' + JSON.stringify(options));
+
+	if (_.isEmpty(args)) {
+		args.push('.');
 	}
 
-	this.debug('Serving files under ' + servingDir);
-	var config = new Config(servingDir, undefined, undefined, options.port);
+	_.forEach(args, function (projectDir) {
+		hub.registerComponent(hub.createInstance(Project, {projectDir: path.resolve(projectDir)}));
+	});
 
-	runner.start(config);
-	this.ok("Listening on port: " + config.poxyPort);
+	var serviceReferences = hub.getServiceReferences(contracts.configurable);
+	_.forEach(serviceReferences, function (serviceReference) {
+		getService(serviceReference, function (service) {
+			service.updateConfiguration(_.pick(options, _.keys(service.getConfigurationOptions())));
+		});
+	});
+
+	httpServer.component.listen();
 }
-
-
-
