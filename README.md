@@ -20,8 +20,6 @@ platform-proxy -h
 
 - Adding new files/modules on the fly.
     workaround: refresh bundle + restart proxy
-- Changing translations on the fly.
-    workaround: refresh bundle
 
 ## Posible improvements
 
