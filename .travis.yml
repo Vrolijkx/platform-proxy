@@ -12,3 +12,4 @@ deploy:
     tags: true
     repo: Vrolijkx/platform-proxy
     branch: develop
+    node: '5.5'
