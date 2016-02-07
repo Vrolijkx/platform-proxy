@@ -5,6 +5,7 @@
   "homepage": "user/repo",
   "bugs": "user/repo/issues",
   "license": "MIT",
+  "main": "lib/runnernp.js",
   "author": {
     "name": "Kristof Vrolijkx"
   },
@@ -15,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/Vrolijkx/platform-proxy.git"
   },
-  "keywords": [],
+  "keywords": ["proxy", "platform", "aca"],
   "dependencies": {
     "cli": "^0.11.1",
     "lodash": "^4.2.1",
@@ -24,8 +25,12 @@
     "request" : "^2.69.0",
     "properties-reader" : "^0.0.15"
   },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-jasmine": "^2.2.1"
+  },
   "scripts": {
-    "start": "node bin.js"
+    "test": "gulp test"
   },
   "bin": "bin.js"
 }

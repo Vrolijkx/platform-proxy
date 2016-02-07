@@ -1,0 +1,15 @@
+language: node_js
+env: CI=true
+node_js:
+- '4.1'
+- '5.5'
+deploy:
+  provider: npm
+  email: kristofvrolijkx@gmail.com
+  api_key:
+    secure: GvYTdXtyvbyvI/gwh89TvysjLBR2V0OvGhJxCK5WyexrMps+ti8KR5jS9jCxf8Gked/+kz/2pqzC574OKJVGq3EWb+1u8LYThdaxgsFMUarcv7t75tUj2LeNgiwbXEbF+gY7NPXUhSk+/Qij4Q1Jst1LhnK/fGRUoZgj0Op9Kf8J8n6Ud/pZIqAJoHGgWH4kO1AM/TwAFoR32j3SmSuZZ68nwBhj4jNvkzD1xch5pMiFDl9i2uJLvMQBqXZ+R9yKOVznWKwOjTcamATOasRBsoZRMBmdDG/MhlP07iNWs2AA4WH9vuVUoQ/gXVgYny4bwu1XSYZaxQ/T2XNsz6o6OX+dow5OnIAkMZ9CbhyP1pAzI6Qw3Xm9DgJKtp9pfY5jw+AS6wrVv5zxmXCQI0pf1kALzLD2ZE/aPizsE5atdxmhX4nIRYN1Kk0tcgEchPbH1P2WFMcD/b2p4EpGXOEQnKHllslfmM/rKCS7vzFG0vmvNHnzVFHCF2AT5z1QBogKN/bjF6fpRzjZNOP2Z+zcB2DP79cbELM7ML047tJBqu0BPd7EoFUR3iCDo4wpRaNWRohWYpW1NpJ1GBlUfwJ0qi1VUDq9TV85vC9TYf/WGH1CJDhKt4sdmsxnnDaj9oQYZeBqwk6I1XZR9fIVXxSt6Gnzr7JdfDZR+g6kTD9/XVU=
+  on:
+    tags: true
+    repo: Vrolijkx/platform-proxy
+    branch: develop
+    node: '5.5'
