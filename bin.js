@@ -10,7 +10,7 @@ var httpServer = require('./lib/components/http-server');
 var router = require('./lib/components/router');
 var proxyRequestHandler = require('./lib/components/proxy-request-handler');
 var assetRequestHandler = require('./lib/components/asset-request-handler');
-var translationsRequestHandler = require('./lib/components/translations-request-handler');
+var translationsResponseHandler = require('./lib/components/translations-response-handler');
 var Project = require('./lib/components/Project');
 
 var cli = require('cli');
@@ -43,7 +43,7 @@ hub
 	.registerComponent(router.component)
 	.registerComponent(proxyRequestHandler.component)
 	.registerComponent(assetRequestHandler.component)
-	.registerComponent(translationsRequestHandler.component)
+	.registerComponent(translationsResponseHandler.component)
 	.start();
 
 cli.parse(parseOptions);

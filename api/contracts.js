@@ -19,7 +19,7 @@ var configurable = {
 	 * This options will be presented to the user
 	 * in the help description
 	 *
-	 * @return	the possible configuration options
+	 * @return    the possible configuration options
 	 */
 	getConfigurationOptions: function () {
 	},
@@ -27,7 +27,7 @@ var configurable = {
 	/**
 	 * Called when configuration might have been changed
 	 *
-	 * @param	the configuration to use from now on
+	 * @param    the configuration to use from now on
 	 */
 	updateConfiguration: function (configuration) {
 	}
@@ -50,18 +50,18 @@ var requestHandler = {
 	 * Indicates whether this requestHandler
 	 * can handle this request
 	 *
-	 * @param req	The request to handle
+	 * @param req    The request to handle
 	 */
 	canHandle: function (req) {
 	},
 	/**
 	 * Try to serve the request
 	 *
-	 * @param req	The request to handle
-	 * @param res	The response to send
+	 * @param req    The request to handle
+	 * @param res    The response to send
 	 *
-	 * @return	true if request was served successfully,
-	 * 			false otherwise
+	 * @return    true if request was served successfully,
+	 *            false otherwise
 	 */
 	handle: function (req, res) {
 	},
@@ -79,7 +79,7 @@ var requestHandler = {
 var project = {
 	/**
 	 * @param uri
-	 * @return	the full path matching the given uri
+	 * @return    the full path matching the given uri
 	 */
 	getAsset: function (uri) {
 	},
@@ -87,7 +87,7 @@ var project = {
 	/**
 	 * Merges in the translations found in getProjectDir
 	 *
-	 * @param translations	the translations JSON object to be updated
+	 * @param translations    the translations JSON object to be updated
 	 */
 	updateTranslations: function (translations) {
 	},
@@ -99,9 +99,30 @@ var project = {
 	}
 };
 
+var responseHandler = {
+
+	canProcess: function (req) {
+	},
+	preProcess: function(res, req) {
+	},
+
+	/**
+	 * Lower priority number gets precedence
+	 */
+	getPriority: function () {
+	},
+	/**
+	 * Unique identifier for the requestHandler
+	 */
+	getName: function () {
+	}
+
+};
+
 module.exports = {
 	routable: routable,
 	configurable: configurable,
 	requestHandler: requestHandler,
-	project: project
+	project: project,
+	responseHandler: responseHandler
 };
