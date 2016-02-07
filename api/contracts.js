@@ -92,7 +92,7 @@ var project = {
 	updateTranslations: function (translations) {
 	},
 
-	updateJsfiles: function(category, jsfiles) {
+	updateUiFiles: function(category, uifiles) {
 	},
 
 	/**
