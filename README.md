@@ -16,13 +16,8 @@ platform-proxy
 platform-proxy -h
 ```
 
-## Not supported (for now)
-
-- Adding new files/modules on the fly.
-    workaround: refresh bundle + restart proxy
-
 ## Posible improvements
 
+- improve performance by caching glob results
 - Watching files for changes
-- Adding extra js files/ ui modules to the returned '/uimanager' calls
 - Injecting liverreload in the index.html file.
