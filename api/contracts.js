@@ -92,13 +92,15 @@ var project = {
 	updateTranslations: function (translations) {
 	},
 
-	updateUiFiles: function(category, uifiles) {
+	updateUiFiles: function (category, uifiles) {
 	},
 
 	/**
 	 * @return the working directory of this project
 	 */
 	getProjectDir: function () {
+	},
+	hasChangedFileForCategory: function (categoryName) {
 	}
 };
 
@@ -106,7 +108,7 @@ var responseHandler = {
 
 	canProcess: function (req) {
 	},
-	preProcess: function(res, req) {
+	preProcess: function (res, req) {
 	},
 
 	/**
@@ -122,10 +124,22 @@ var responseHandler = {
 
 };
 
+var fileManager = {
+
+	scanAndWatchFiles: function (dir, category) {
+	},
+	getFilePaths: function (categoryName) {
+	},
+	hasChangedFileForCategory: function (categoryName) {
+	}
+
+};
+
 module.exports = {
 	routable: routable,
 	configurable: configurable,
 	requestHandler: requestHandler,
 	project: project,
-	responseHandler: responseHandler
+	responseHandler: responseHandler,
+	fileManager: fileManager
 };

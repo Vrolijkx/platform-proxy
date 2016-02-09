@@ -8,6 +8,7 @@ var path = require('path');
 var contracts = require('./api/contracts');
 var httpServer = require('./lib/components/http-server');
 var router = require('./lib/components/router');
+var fileManager = require('./lib/components/file-manager');
 var proxyRequestHandler = require('./lib/components/proxy-request-handler');
 var assetRequestHandler = require('./lib/components/asset-request-handler');
 var translationsResponseHandler = require('./lib/components/translations-response-handler');
@@ -28,8 +29,7 @@ var configurableServiceListener = {
 };
 
 function getService(serviceReference, fn) {
-	var service = hub.getService(this, serviceReference);
-	fn.call(null, service);
+	fn.call(null, hub.getService(this, serviceReference));
 	hub.ungetService(serviceReference);
 }
 
@@ -42,6 +42,7 @@ hub.registerServiceListener(configurableServiceListener);
 hub
 	.registerComponent(httpServer.component)
 	.registerComponent(router.component)
+	.registerComponent(fileManager.component)
 	.registerComponent(proxyRequestHandler.component)
 	.registerComponent(assetRequestHandler.component)
 	.registerComponent(translationsResponseHandler.component)
@@ -71,5 +72,5 @@ function exec(args, options) {
 		});
 	});
 
-	httpServer.component.listen();
+	hub.publish(this, '/framework/started', {});
 }

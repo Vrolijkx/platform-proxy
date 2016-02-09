@@ -9,20 +9,26 @@
   "author": {
     "name": "Kristof Vrolijkx"
   },
-  "contributors" : {
+  "contributors": {
     "name": "Guy Veraghtert"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Vrolijkx/platform-proxy.git"
   },
-  "keywords": ["proxy", "platform", "aca"],
+  "keywords": [
+    "proxy",
+    "platform",
+    "aca"
+  ],
   "dependencies": {
     "cli": "^0.11.1",
     "lodash": "^4.2.1",
     "http-proxy": "^1.12.0",
     "glob-all": "^3.0.1",
-    "properties-reader" : "^0.0.15"
+    "properties-reader": "^0.0.15",
+    "gaze": "^0.6.4",
+    "minimatch": "^3.0.0"
   },
   "devDependencies": {
     "gulp": "^3.8.8",
