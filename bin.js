@@ -5,7 +5,10 @@ require('./external/hubu');
 
 var _ = require('lodash');
 var path = require('path');
-var contracts = require('./api/contracts');
+
+var configurable = require('./api/configurable');
+
+//TODO dynamicly load and register components
 var httpServer = require('./lib/components/http-server');
 var router = require('./lib/components/router');
 var fileManager = require('./lib/components/file-manager');
@@ -13,14 +16,14 @@ var proxyRequestHandler = require('./lib/components/proxy-request-handler');
 var assetRequestHandler = require('./lib/components/asset-request-handler');
 var translationsResponseHandler = require('./lib/components/translations-response-handler');
 var uiFilesResponseHandler = require('./lib/components/uifiles-response-handler');
-var Project = require('./lib/components/Project');
+var Project = require('./lib/components/project');
 
 var cli = require('cli');
 
 var parseOptions = {};
 
 var configurableServiceListener = {
-	contract: contracts.configurable,
+	contract: configurable,
 	listener: function (event) {
 		if (event.getType() === SOC.ServiceEvent.REGISTERED) {
 			getService(event.getReference(), addParseOptions);
@@ -42,7 +45,6 @@ hub.registerServiceListener(configurableServiceListener);
 hub
 	.registerComponent(httpServer.component)
 	.registerComponent(router.component)
-	.registerComponent(fileManager.component)
 	.registerComponent(proxyRequestHandler.component)
 	.registerComponent(assetRequestHandler.component)
 	.registerComponent(translationsResponseHandler.component)
@@ -50,7 +52,6 @@ hub
 	.start();
 
 cli.parse(parseOptions);
-
 cli.main(exec);
 
 function exec(args, options) {
@@ -61,11 +62,9 @@ function exec(args, options) {
 		args.push('.');
 	}
 
-	_.forEach(args, function (projectDir) {
-		hub.registerComponent(hub.createInstance(Project, {projectDir: path.resolve(projectDir)}));
-	});
+	_.forEach(args, registerProjectForDir);
 
-	var serviceReferences = hub.getServiceReferences(contracts.configurable);
+	var serviceReferences = hub.getServiceReferences(configurable);
 	_.forEach(serviceReferences, function (serviceReference) {
 		getService(serviceReference, function (service) {
 			service.updateConfiguration(_.pick(options, _.keys(service.getConfigurationOptions())));
@@ -73,4 +72,20 @@ function exec(args, options) {
 	});
 
 	hub.publish(this, '/framework/started', {});
+}
+
+function registerProjectForDir(projectDir) {
+	hub.registerComponent(hub.createInstance(Project, {projectDir: path.resolve(projectDir)}));
+}
+
+function loadComponents() {
+	hub
+		.registerComponent(httpServer.component)
+		.registerComponent(router.component)
+		.registerComponent(proxyRequestHandler.component)
+		.registerComponent(assetRequestHandler.component)
+		.registerComponent(translationsResponseHandler.component)
+		.registerComponent(uiFilesResponseHandler.component)
+		.registerComponent(fileManager.component)
+		.start();
 }
