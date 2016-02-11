@@ -27,7 +27,7 @@
     "http-proxy": "^1.12.0",
     "glob-all": "^3.0.1",
     "properties-reader": "^0.0.15",
-    "gaze": "^0.6.4",
+    "gaze": "^0.5.2",
     "minimatch": "^3.0.0"
   },
   "devDependencies": {
