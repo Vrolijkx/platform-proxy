@@ -22,7 +22,9 @@ var Project = {
 	/**
 	 * @return the working directory of this Project
 	 */
-	getProjectDir: function () {}
+	getProjectDir: function () {},
+
+	hasChangedFileForCategory: function () {}
 };
 
 module.exports = Project;
