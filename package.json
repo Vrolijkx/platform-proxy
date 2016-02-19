@@ -1,7 +1,7 @@
 {
   "name": "platform-proxy",
   "description": "See changes in html, js and css files in platform projects without reloading the module.",
-  "version": "1.3.0",
+  "version": "1.3.2",
   "homepage": "user/repo",
   "bugs": "user/repo/issues",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "lodash": "^4.2.1",
     "http-proxy": "^1.12.0",
     "properties-reader": "^0.0.15",
-    "gaze": "^0.6.4",
+    "gaze": "^0.5.2",
     "minimatch": "^3.0.0"
   },
   "devDependencies": {
