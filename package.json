@@ -1,7 +1,7 @@
 {
   "name": "platform-proxy",
   "description": "See changes in html, js and css files in platform projects without reloading the module.",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "homepage": "user/repo",
   "bugs": "user/repo/issues",
   "license": "MIT",
@@ -9,20 +9,25 @@
   "author": {
     "name": "Kristof Vrolijkx"
   },
-  "contributors" : {
+  "contributors": {
     "name": "Guy Veraghtert"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Vrolijkx/platform-proxy.git"
   },
-  "keywords": ["proxy", "platform", "aca"],
+  "keywords": [
+    "proxy",
+    "platform",
+    "aca"
+  ],
   "dependencies": {
     "cli": "^0.11.1",
     "lodash": "^4.2.1",
     "http-proxy": "^1.12.0",
-    "glob-all": "^3.0.1",
-    "properties-reader" : "^0.0.15"
+    "properties-reader": "^0.0.15",
+    "gaze": "^0.5.2",
+    "minimatch": "^3.0.0"
   },
   "devDependencies": {
     "gulp": "^3.8.8",
