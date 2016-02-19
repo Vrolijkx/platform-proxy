@@ -1,23 +1,12 @@
-/**
- * Indicates that the component can be configured.
- */
-var Configurable = {
-	/**
-	 * This options will be presented to the user
-	 * in the help description
-	 *
-	 * @return    the possible configuration options
-	 */
-	getConfigurationOptions: function () {
-	},
+var FileManager = {
 
-	/**
-	 * Called when configuration might have been changed
-	 *
-	 * @param    the configuration to use from now on
-	 */
-	updateConfiguration: function (configuration) {
+	scanAndWatchFiles: function (dir, category) {
+	},
+	getFilePaths: function (categoryName) {
+	},
+	hasChangedFileForCategory: function (categoryName) {
 	}
+
 };
 
-module.exports = Configurable;
+module.exports = FileManager;

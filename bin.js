@@ -42,14 +42,7 @@ function addParseOptions(configurable) {
 
 hub.registerServiceListener(configurableServiceListener);
 
-hub
-	.registerComponent(httpServer.component)
-	.registerComponent(router.component)
-	.registerComponent(proxyRequestHandler.component)
-	.registerComponent(assetRequestHandler.component)
-	.registerComponent(translationsResponseHandler.component)
-	.registerComponent(uiFilesResponseHandler.component)
-	.start();
+loadComponents();
 
 cli.parse(parseOptions);
 cli.main(exec);

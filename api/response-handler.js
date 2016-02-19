@@ -1,18 +1,20 @@
-var responseHandler = {
+var ResponseHandler = {
 
-	canProcess: function (req) {},
-
-	preProcess: function(res, req) {},
+	canProcess: function (req) {
+	},
+	preProcess: function (res, req) {
+	},
 
 	/**
 	 * Lower priority number gets precedence
 	 */
-	getPriority: function () {},
-
+	getPriority: function () {
+	},
 	/**
-	 * Unique identifier for the RequestHandler
+	 * Unique identifier for the requestHandler
 	 */
-	getName: function () {}
+	getName: function () {
+	}
 };
 
-module.exports = responseHandler;
+module.exports = ResponseHandler;

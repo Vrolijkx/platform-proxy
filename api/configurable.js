@@ -8,14 +8,16 @@ var Configurable = {
 	 *
 	 * @return    the possible configuration options
 	 */
-	getConfigurationOptions: function () {},
+	getConfigurationOptions: function () {
+	},
 
 	/**
 	 * Called when configuration might have been changed
 	 *
-	 * @param  the configuration to use from now on
+	 * @param    the configuration to use from now on
 	 */
-	updateConfiguration: function (configuration) {}
+	updateConfiguration: function (configuration) {
+	}
 };
 
 module.exports = Configurable;

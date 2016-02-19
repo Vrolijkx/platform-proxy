@@ -9,16 +9,16 @@ var RequestHandler = {
 	/**
 	 * Lower priority number gets precedence
 	 */
-	getPriority: function () {},
-
+	getPriority: function () {
+	},
 	/**
-	 * Indicates whether this RequestHandler
+	 * Indicates whether this requestHandler
 	 * can handle this request
 	 *
 	 * @param req    The request to handle
 	 */
-	canHandle: function (req) {},
-
+	canHandle: function (req) {
+	},
 	/**
 	 * Try to serve the request
 	 *
@@ -28,12 +28,13 @@ var RequestHandler = {
 	 * @return    true if request was served successfully,
 	 *            false otherwise
 	 */
-	handle: function (req, res) {},
-
+	handle: function (req, res) {
+	},
 	/**
-	 * Unique identifier for the RequestHandler
+	 * Unique identifier for the requestHandler
 	 */
-	getName: function () {}
+	getName: function () {
+	}
 };
 
 module.exports = RequestHandler;
