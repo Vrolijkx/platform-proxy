@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var jasmine = require('gulp-jasmine');
 
 var src = ['./bin.js', './lib/**/*.js'];
-var tests = ['./test/**/*.jsgu'];
+var tests = ['./test/**/*_spec.js'];
 var filesToWatch = src.concat(tests);
 
 gulp.task('test', function () {

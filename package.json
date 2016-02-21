@@ -30,7 +30,7 @@
     "minimatch": "^3.0.0"
   },
   "devDependencies": {
-    "gulp": "^3.8.8",
+    "gulp": "^3.9.1",
     "gulp-jasmine": "^2.2.1"
   },
   "scripts": {
