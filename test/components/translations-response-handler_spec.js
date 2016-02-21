@@ -20,15 +20,19 @@ describe('TranslationsResponseHandler', function () {
 		}
 	});
 
+	function getServiceForcontract(contract) {
+		return hubInstance.getService({}, hubInstance.getServiceReference(contract));
+	}
+
 	it('should be registered as responsHandler correctly', function() {
-		var responseHandler = hubInstance.getService({}, hubInstance.getServiceReference(ResponseHandler));
+		var responseHandler = getServiceForcontract(ResponseHandler);
 
 		expect(responseHandler).toBeDefined();
 		expect(responseHandler.__proxy__).toEqual(component);
 	});
 
 	it('should be registered as Configurable correctly', function() {
-		var responseHandler = hubInstance.getService({}, hubInstance.getServiceReference(Configurable));
+		var responseHandler = getServiceForcontract(Configurable);
 
 		expect(responseHandler).toBeDefined();
 		expect(responseHandler.__proxy__).toEqual(component);
