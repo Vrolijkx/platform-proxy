@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "cli": "^0.11.1",
-    "lodash": "^4.2.1",
+    "lodash": "^4.5.0",
     "http-proxy": "^1.12.0",
     "properties-reader": "^0.0.15",
     "gaze": "^0.5.2",
@@ -31,7 +31,8 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-jasmine": "^2.2.1"
+    "gulp-jasmine": "^2.2.1",
+    "node-mocks-http" : "^1.5.1"
   },
   "scripts": {
     "test": "gulp test"
